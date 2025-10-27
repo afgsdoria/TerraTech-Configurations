@@ -1,0 +1,364 @@
+Core-SW(config)#! ===============================
+Core-SW(config)#! TRUNK LINKS TO OTHER SWITCHES
+Core-SW(config)#! ===============================
+Core-SW(config)#interface GigabitEthernet0/2
+Core-SW(config-if)# description Trunk_to_Router
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/3
+Core-SW(config-if)# description Trunk_to_Wireless_LectureRoom_Switch
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 10,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/12
+Core-SW(config-if)# description Trunk_to_Wireless_CommonArea_Switch
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 10,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/4
+Core-SW(config-if)# description Trunk_to_Comlab1
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 20,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/5
+Core-SW(config-if)# description Trunk_to_Comlab2
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 30,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/6
+Core-SW(config-if)# description Trunk_to_NetworkLab
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 40,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/7
+Core-SW(config-if)# description Trunk_to_Faculty
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 50,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/8
+Core-SW(config-if)# description Trunk_to_Registrar
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 60,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/9
+Core-SW(config-if)# description Trunk_to_Finance
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 70,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/10
+Core-SW(config-if)# description Trunk_to_HR
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 80,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/11
+Core-SW(config-if)# description Trunk_to_Admin
+Core-SW(config-if)# switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport trunk allowed vlan 90,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/1
+Core-SW(config-if)# description ProxyServer
+Core-SW(config-if)# switchport access vlan 100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#!
+Core-SW(config-if)#interface FastEthernet0/2
+Core-SW(config-if)# description MainServer
+Core-SW(config-if)# switchport access vlan 100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#
+Core-SW(config)#!
+Core-SW(config)#! ===============================
+Core-SW(config)#! ENABLE LAYER 3 ROUTING
+Core-SW(config)#! ===============================
+Core-SW(config)#ip routing
+Core-SW(config)#
+Core-SW(config)#!
+Core-SW(config)#! ===============================
+Core-SW(config)#! DEFAULT ROUTE (TO ROUTER IN DATACENTER)
+Core-SW(config)#! ===============================
+Core-SW(config)#ip route 0.0.0.0 0.0.0.0 201.20.39.2
+Core-SW(config)#
+Core-SW(config)#!
+Core-SW(config)#! ===============================
+Core-SW(config)#! DHCP CONFIGURATION (NO LEASE CMD)
+Core-SW(config)#! ===============================
+Core-SW(config)#ip dhcp excluded-address 201.20.36.1 201.20.36.10
+Core-SW(config)#ip dhcp excluded-address 201.20.38.1 201.20.38.10
+Core-SW(config)#ip dhcp excluded-address 201.20.38.65 201.20.38.70
+Core-SW(config)#ip dhcp excluded-address 201.20.39.1 201.20.39.10
+Core-SW(config)#
+Core-SW(config)#ip dhcp pool WIRELESS
+Core-SW(dhcp-config)# network 201.20.36.0 255.255.254.0
+Core-SW(dhcp-config)# default-router 201.20.36.1
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool COMLAB1
+Core-SW(dhcp-config)# network 201.20.38.0 255.255.255.192
+Core-SW(dhcp-config)# default-router 201.20.38.1
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool COMLAB2
+Core-SW(dhcp-config)# network 201.20.38.64 255.255.255.192
+Core-SW(dhcp-config)# default-router 201.20.38.65
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool NETLAB
+Core-SW(dhcp-config)# network 201.20.38.128 255.255.255.224
+Core-SW(dhcp-config)# default-router 201.20.38.129
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool FACULTY
+Core-SW(dhcp-config)# network 201.20.38.160 255.255.255.224
+Core-SW(dhcp-config)# default-router 201.20.38.161
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool REGISTRAR
+Core-SW(dhcp-config)# network 201.20.38.192 255.255.255.240
+Core-SW(dhcp-config)# default-router 201.20.38.193
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool FINANCE
+Core-SW(dhcp-config)# network 201.20.38.208 255.255.255.240
+Core-SW(dhcp-config)# default-router 201.20.38.209
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool HR
+Core-SW(dhcp-config)# network 201.20.38.224 255.255.255.240
+Core-SW(dhcp-config)# default-router 201.20.38.225
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool ADMIN
+Core-SW(dhcp-config)# network 201.20.38.240 255.255.255.240
+Core-SW(dhcp-config)# default-router 201.20.38.241
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#ip dhcp pool DATACENTER
+Core-SW(dhcp-config)# network 201.20.39.0 255.255.255.240
+Core-SW(dhcp-config)# default-router 201.20.39.1
+Core-SW(dhcp-config)# dns-server 8.8.8.8
+Core-SW(dhcp-config)#!
+Core-SW(dhcp-config)#end
+Core-SW#write memory
+Building configuration...
+[OK]
+Core-SW#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan20, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan30, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan40, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan50, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan60, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan70, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan80, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan90, changed state to up
+
+%LINK-5-CHANGED: Interface Vlan100, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan100, changed state to up
+
+%SYS-5-CONFIG_I: Configured from console by console
+
+Core-SW>enable
+Core-SW#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#vlan 10
+Core-SW(config-vlan)# name Wireless
+Core-SW(config-vlan)#exit
+Core-SW(config)#
+Core-SW(config)#interface Fa0/3
+Core-SW(config-if)# switchport mode trunk
+
+Core-SW(config-if)# switchport trunk allowed vlan 10
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#
+Core-SW(config)#interface Fa0/12
+Core-SW(config-if)# switchport mode trunk
+
+Core-SW(config-if)# switchport trunk allowed vlan 10
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/3, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan10, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/12, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/12, changed state to up
+
+Core-SW>enable
+Core-SW#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#interface vlan 10
+Core-SW(config-if)#ip address 192.168.10.1 255.255.255.0
+Core-SW(config-if)#no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#end
+Core-SW#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Core-SW#write memory
+Building configuration...
+[OK]
+Core-SW#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#ip dhcp pool WIRELESS-POOL
+Core-SW(dhcp-config)#network 192.168.10.0 255.255.255.0
+Core-SW(dhcp-config)#
+Core-SW(dhcp-config)#default-router 192.168.10.1
+Core-SW(dhcp-config)#dns-server 8.8.8.8
+Core-SW(dhcp-config)#exit
+Core-SW(config)#ip dhcp excluded-address 192.168.10.1 192.168.10.10
+Core-SW(config)#end
+Core-SW#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Core-SW#write memory
+
+Core-SW>enable
+Core-SW#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#vlan 100
+Core-SW(config-vlan)# name DataCenter
+Core-SW(config-vlan)#exit
+Core-SW(config)#interface GigabitEthernet0/2
+Core-SW(config-if)# description Link_to_Router_G0/0
+Core-SW(config-if)# switchport mode access
+Core-SW(config-if)# switchport access vlan 100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#interface Vlan100
+Core-SW(config-if)# ip address 201.20.39.1 255.255.255.240
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#ip routing
+Core-SW(config)#ip route 0.0.0.0 0.0.0.0 201.20.39.2
+Core-SW(config)#end
+Core-SW#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Core-SW#write memory
+Building configuration...
+[OK]
+
+Core-SW>enable
+Core-SW#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#vlan 100
+Core-SW(config-vlan)# name DataCenter
+Core-SW(config-vlan)#exit
+Core-SW(config)#interface GigabitEthernet0/2
+Core-SW(config-if)# description Link_to_Router_G0/0
+Core-SW(config-if)# switchport mode access
+Core-SW(config-if)# switchport access vlan 100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#interface Vlan100
+Core-SW(config-if)# ip address 201.20.39.1 255.255.255.240
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#exit
+Core-SW(config)#ip routing
+Core-SW(config)#ip route 0.0.0.0 0.0.0.0 201.20.39.2
+Core-SW(config)#end
+Core-SW#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Core-SW#write memory
+Building configuration...
+[OK]
+Core-SW#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Core-SW(config)#interface FastEthernet0/4
+Core-SW(config-if)# description Trunk_to_ComLab1_Switch
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport mode trunk
+
+Core-SW(config-if)# switchport trunk allowed vlan 20,100
+Core-SW(config-if)# no shutdown
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/4, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan20, changed state to up
+
+Core-SW(config-if)#exit
+Core-SW(config)#interface FastEthernet0/5
+Core-SW(config-if)# description Trunk_to_ComLab2_Switch
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport mode trunk
+
+Core-SW(config-if)# switchport trunk allowed vlan 30,100
+Core-SW(config-if)# no shutdown
+Core-SW(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/5, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/5, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan30, changed state to up
+
+Core-SW(config-if)#exit
+Core-SW(config)#interface FastEthernet0/6
+Core-SW(config-if)# description Trunk_to_NetworkLab_Switch
+Core-SW(config-if)# switchport trunk encapsulation dot1q
+Core-SW(config-if)# switchport mode trunk
+
+Core-SW(config-if)# switchport trunk allowed vlan 40,100
+Core-SW(config-if)# no shutdown
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/6, changed state to down
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/6, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan40, changed state to up
+
+Core-SW(config-if)#exit
+Core-SW(config)#end
+Core-SW#
+%SYS-5-CONFIG_I: Configured from console by console
+write memory
+Building configuration...
+[OK]
